@@ -2,6 +2,8 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header_0.css';
 
+//To install bootstrap run: npm install react-bootstrap bootstrap
+
 const Header_0 = () => {
     return (
         <nav id="mainNavbar" class="navbar fixed-top">

@@ -1,8 +1,8 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './Header.css';
+import './Header_0.css';
 
-const Header = () => {
+const Header_0 = () => {
     return (
         <nav id="mainNavbar" class="navbar fixed-top">
             <a class="navbar-brand" href="https://cse.hcmut.edu.vn/"
@@ -14,23 +14,15 @@ const Header = () => {
                 </div>
             </a>
             <ul class="nav justify-content-end">
-                {/* <li class="nav-item">
+                <li class="nav-item">
                     <a href="https://www.youtube.com/watch?v=Mi2cURoOAYY" class="nav-link signup">Đăng ký</a>
                 </li>
                 <li class="nav-item">
                     <a href="https://www.youtube.com/watch?v=kCeyfJ1C4T8" class="nav-link login">Đăng nhập</a>
-                </li> */}
-                <li class="nav-item">
-                    <a href="https://www.youtube.com/watch?v=Mi2cURoOAYY" class="nav-link admin">ADMINISTRATOR</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link noti">
-                        <img src="./noti_icon.png" width="18" class="d-inline-block align-top" alt=""></img>
-                    </a>
                 </li>
             </ul>
 
         </nav>
     );
 }
-export default Header;
+export default Header_0;

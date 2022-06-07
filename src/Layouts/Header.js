@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.css';
 
-const Header = () => {
+function Header() {
     return (
         <nav id="mainNavbar" class="navbar fixed-top">
             <a class="navbar-brand" href="https://cse.hcmut.edu.vn/"
@@ -14,12 +14,6 @@ const Header = () => {
                 </div>
             </a>
             <ul class="nav justify-content-end">
-                {/* <li class="nav-item">
-                    <a href="https://www.youtube.com/watch?v=Mi2cURoOAYY" class="nav-link signup">Đăng ký</a>
-                </li>
-                <li class="nav-item">
-                    <a href="https://www.youtube.com/watch?v=kCeyfJ1C4T8" class="nav-link login">Đăng nhập</a>
-                </li> */}
                 <li class="nav-item">
                     <a href="https://www.youtube.com/watch?v=Mi2cURoOAYY" class="nav-link admin">ADMINISTRATOR</a>
                 </li>

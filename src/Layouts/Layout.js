@@ -1,11 +1,16 @@
+
+// i don't know why but dùng header nào thì import header đó thôi 
+// và comment cái (header) kia, vì khi import cùng lúc 2 header tui thấy bị lỗi
+
 import Header from './Header'
-import Header_0 from './Header_0'
+// import Header_0 from './header_0/Header_0'
+
 import Footer from './Footer'
 
-const Layout = props => {
+const Layout = () => {
     return (
         <div>
-            <Header_0 />
+            <Header />
             <div className="container">
                 <h1 className="mr-5 mt-5">This is main container</h1>
                 <p>

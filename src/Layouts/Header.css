@@ -24,29 +24,8 @@
     font-size: 1rem;
     font-weight: 400;
     border-radius: 1.5rem;
-    padding: 0.2rem 0.8rem 0.2rem 0.8rem;
-    /* width: 6.7rem; */
-    
+    padding: 0.2rem 0.8rem 0.2rem 0.8rem;    
     text-align: center;
-}
-
-#mainNavbar .nav-link.login {
-    background-color: #56AF6C;
-    color: white;
-    margin-right: 1.8rem;
-}
-
-#mainNavbar .nav-link.signup {
-    margin-right: 1.2rem;
-}
-
-/* #mainNavbar .nav-link:hover {
-    color: white;
-    background-color: #109669;
-} */
-
-#mainNavbar .nav-link.login:hover {
-    background-color: #00432D;
 }
 
 #mainNavbar .nav-link {

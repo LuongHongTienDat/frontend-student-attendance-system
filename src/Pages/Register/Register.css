@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    color: #333;
+    font-size: 100%;
+    font-family: "Mulish", sans-serif;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+#root {
+    
+}
+
+.form-register {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.form {
+    /* height: 70%; */
+    margin-top: 8vh;
+    margin-bottom: 1vh;
+    height: 82vh;
+    width: 40vw;
+    min-width: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 30px 16px;
+    position: relative;
+    /* border: 1px solid #ccc; */
+    
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #00432D;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+
+.form-group {
+    width: 90%;
+    height: 90px;
+    padding: 0 0 12px;
+    margin: 12px 0 0 0;
+    position: relative;
+}
+
+.form-label,
+.form-message {
+  text-align: left;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.form-input {
+    width: 100%;
+    height: 40px;
+    padding: 8px;
+    /* border-radius: 3px;
+    border: 1.5px solid #b3b3b3; */
+    outline: none;
+    font-size: 16px;
+    margin: 0 0 2px;
+    border: 2px solid #7DBE8D;
+    border-radius: 38.5px;
+    background-color: #F7FFF7;
+}
+.form-date {
+    right: 0;
+}
+
+.form-group-2 {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 45%;
+    height: 100%;
+    padding: 0 0 12px;
+    margin: 0;
+    
+}
+
+
+
+.form-input:hover {
+    border: 2px solid #40f46d;
+    /* background-color: #fff; */
+}
+
+
+.form-group.invalid .form-input {
+  border-color: #f33a58;
+}
+
+.form-group.invalid .form-message {
+  color: #f33a58;
+}
+
+.form-message {
+    font-size: 1rem;
+    line-height: 1.6rem;
+    padding: 0 0 4px;
+    margin-bottom: 14px;
+    margin-left: 12px;
+    color: #f33a58;
+  }
+
+.form-register .form-aside {
+    display: inline-block;
+    padding-top: 16px;
+    font-size: 1rem;
+    width: 50%;
+}
+
+.form-register .form-aside p {
+    display: inline; 
+}
+
+.form-register .form-aside a {
+    display: inline; 
+    text-decoration: none;
+    margin-left: 8px;
+    color: #FFC300;
+}
+
+
+.form-register .form-submit {
+    /* width: 90%; */
+    position: absolute;
+    top: 0;
+    display: inline;
+    width: 30%;
+    /* padding: 12px 0 */
+    margin-left: 20%;
+    /* margin: 24px 40px 0 18vw; */
+    font-size: 20px;
+    font-weight: 700;
+    background-color: #FFC300;
+    color: #3E2F00;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    height: 4.5vh;
+    text-align: center;
+    
+}
+
+.form-submit:hover {
+    opacity: 0.8;
+}
+
+
+
+
+.form-group .form-gender div {
+   margin: 12px 16px;
+}

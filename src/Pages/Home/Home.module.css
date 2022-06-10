@@ -1,16 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
 .row-container{
     width: 100%;
-    height: auto;
+    height: 100%;
     font-family: 'Mulish', sans-serif;
     color: #00432D;
-    background-color: #f5f5f5;
     background-image: url('../../../public/homeBG.png');
     background-repeat: no-repeat;
-     background-size: cover; 
+     background-size: contain; 
     margin:0;
     /* background-size: 100% 100%; */
-
 }
 @keyframes animate-pop {
     0% {
@@ -25,7 +23,7 @@
 .container-col-7{
     padding-left: 4rem;
     padding-top: 3.3rem;
-    padding-bottom: 3.3rem;
+    padding-bottom: 1rem;
     animation-name: animate-pop;
     animation-duration: 2s;
 }
@@ -42,7 +40,7 @@
 }
 .container-col-4{
     padding-top: 3.4rem;
-    padding-bottom: 3.3rem;
+    padding-bottom: 1rem;
     padding-left: 3.3rem;
     margin-left: 2rem;
 }

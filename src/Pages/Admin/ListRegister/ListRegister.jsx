@@ -1,6 +1,5 @@
 import React, {useState, useEffect } from "react";
-import Header from '../Header'
-import Footer from '../Footer'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './ListRegister.css';
 import data from './data.json';

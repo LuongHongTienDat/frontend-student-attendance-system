@@ -2,54 +2,50 @@
 
 * {
     padding: 0;
-    margin: 0; 
+    margin: 0;
     box-sizing: border-box;
 }
-
-html {
-    height: 100%;
-    overflow: hidden;
-}
+div {
+    scroll-direction: horizontal;
+  }
 
 body {
-    height: 100vh;
-    width: 100vw;
     color: #333;
     font-size: 100%;
     font-family: "Mulish", sans-serif;
-    display: flex;
-    justify-content: center;
     /* align-items: center; */
 }
-#root {
-    
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
 }
 
 .form-register {
-    width: 100vw;
+    width: 100%;
+    margin-top: 52px;
+    height: calc(100vh - 135px);
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 .form {
-    /* height: 70%; */
-    margin-top: 8vh;
-    margin-bottom: 1vh;
-    height: 82vh;
-    width: 40vw;
-    min-width: 400px;
+    width: 50%;
+    height: 100%;
+    min-height: 400px;
+    min-width: 600px;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column;
     align-items: center;
-    padding: 30px 16px;
+    padding: 1.5rem 0;
     position: relative;
-    /* border: 1px solid #ccc; */
-    
+
 }
 
 .heading {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #00432D;
     font-weight: bold;
@@ -60,35 +56,37 @@ body {
 
 .form-group {
     width: 90%;
-    height: 90px;
-    padding: 0 0 12px;
-    margin: 12px 0 0 0;
+    height: 70px;
+    padding: 0 0 0.75rem;
+    margin: 0.75rem 0 0 0;
     position: relative;
+    /* flex: 1; */
 }
 
 .form-label,
 .form-message {
-  text-align: left;
+    text-align: left;
 }
 
 .form-label {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
 
 .form-input {
     width: 100%;
-    height: 40px;
-    padding: 8px;
+    height: 2rem;
+    padding: 0.5rem;
     /* border-radius: 3px;
     border: 1.5px solid #b3b3b3; */
     outline: none;
-    font-size: 16px;
+    font-size: 1rem;
     margin: 0 0 2px;
     border: 2px solid #7DBE8D;
-    border-radius: 38.5px;
+    border-radius: 2.406rem;
     background-color: #F7FFF7;
 }
+
 .form-date {
     right: 0;
 }
@@ -97,11 +95,11 @@ body {
     position: absolute;
     top: 0;
     display: inline-block;
-    width: 45%;
+    width: 40%;
     height: 100%;
-    padding: 0 0 12px;
+    padding: 0 0 0.75rem;
     margin: 0;
-    
+
 }
 
 
@@ -113,37 +111,43 @@ body {
 
 
 .form-group.invalid .form-input {
-  border-color: #f33a58;
+    border-color: #f33a58;
 }
 
 .form-group.invalid .form-message {
-  color: #f33a58;
+    color: #f33a58;
 }
 
+
+.form-messages,
 .form-message {
-    font-size: 1rem;
-    line-height: 1.6rem;
+    font-size: 13px;
+    font-size: 13px;
+    /* line-height: 1.6rem; */
     padding: 0 0 4px;
-    margin-bottom: 14px;
-    margin-left: 12px;
+    margin-bottom: 4px;
     color: #f33a58;
-  }
+}
+
+.form-messages {
+    display: none;
+}
 
 .form-register .form-aside {
     display: inline-block;
-    padding-top: 16px;
+    padding-top: 1rem;
     font-size: 1rem;
     width: 50%;
 }
 
 .form-register .form-aside p {
-    display: inline; 
+    display: inline;
 }
 
 .form-register .form-aside a {
-    display: inline; 
+    display: inline;
     text-decoration: none;
-    margin-left: 8px;
+    margin-left: 0.5rem;
     color: #FFC300;
 }
 
@@ -157,17 +161,17 @@ body {
     /* padding: 12px 0 */
     margin-left: 20%;
     /* margin: 24px 40px 0 18vw; */
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 700;
     background-color: #FFC300;
     color: #3E2F00;
-    border-radius: 25px;
+    border-radius: 1.563rem;
     outline: none;
     border: none;
     cursor: pointer;
     height: 4.5vh;
     text-align: center;
-    
+
 }
 
 .form-submit:hover {
@@ -178,5 +182,258 @@ body {
 
 
 .form-group .form-gender div {
-   margin: 12px 16px;
+    margin: 0.75rem 1rem;
+}
+
+@media only screen and (max-height: 550px)   {
+    .form {
+        width: 35%;
+        min-width: 400px;
+    }
+    .heading {
+        font-size: 16px;
+    }
+    .form-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    .form-group {
+        width: 90%;
+        height: 70px;
+        padding: 0;
+        margin: 0;
+        
+    }
+    .form-input {
+        width: 100%;
+        height: 28px;
+        padding: 4px 10px;
+        font-size: 12px;
+        margin: 0;
+
+    }
+    .form-message {
+        display: none;
+    }
+
+    .form-messages {
+        margin-top: 6px;
+        margin-left: 8px;
+        font-size: 13px;
+        display: block;
+    }
+
+    .form-register .form-aside {
+        position: absolute;
+        top: 40%;
+        left: 6px;
+        font-size: 11px;
+        width: 50%;
+    }
+
+    .form-register .form-submit {
+        position: absolute;
+        top: 70%;
+        right: 0;
+        font-size: 16px;
+    }
+}
+
+
+
+@media only screen and (max-height: 650px) and (min-height: 551px)  {
+    .form {
+        width: 35%;
+        min-width: 350px;
+        max-width: 500px;
+    }
+    .heading {
+        font-size: 18px;
+    }
+    .form-label {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+    .form-group {
+        width: 90%;
+        height: 70px;
+        padding: 0;
+        margin: 0;
+        
+    }
+    .form-input {
+        width: 100%;
+        height: 28px;
+        padding: 4px 10px;
+        font-size: 12px;
+        margin: 0;
+
+    }
+    .form-message {
+        font-size: 11px;
+        margin-top: 0;
+        margin-left: 10px;
+    }
+
+    .form-register .form-aside {
+        
+        position: absolute;
+        top: 35%;
+        font-size: 12px;
+        width: 50%;
+    }
+
+    .form-register .form-submit {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@media only screen and (max-height: 900px) and (min-height: 700px)  {
+    .form {
+        width: 35%;
+        min-width: 350px;
+        max-width: 600px;
+    }
+    .heading {
+        font-size: 22px;
+        margin-bottom: 13px;
+    }
+    .form-label {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    .form-group {
+        width: 90%;
+        height: 104px;
+        padding: 0;
+        margin: 0;
+        
+    }
+    .form-input {
+        width: 100%;
+        height: 42px;
+        padding: 4px 16px;
+        font-size: 16px;
+        margin-bottom: 4px;
+
+    }
+    .form-message {
+        font-size: 14px;
+        margin-top: 2px;
+        margin-left: 14px;
+    }
+
+    .form-register .form-aside {
+        
+        position: absolute;
+        top: 20px;
+        font-size: 16px;
+        width: 50%;
+    }
+
+    .form-register .form-submit {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        font-size: 1.4rem;
+    }
+}
+
+@media only screen and (max-height: 1200px) and (min-height: 901px)  {
+    .heading {
+        margin-top: 16px;
+        font-size: 24px;
+        margin-bottom: 13px;
+    }
+    .form-label {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .form-group {
+        width: 90%;
+        height: 114px;
+        
+    }
+    .form-input {
+        width: 100%;
+        height: 42px;
+        padding: 4px 16px;
+        font-size: 18px;
+        margin-bottom: 12px;
+
+    }
+    .form-message {
+        font-size: 16px;
+        margin-top: 2px;
+        margin-left: 14px;
+    }
+
+    .form-register .form-aside {
+        
+        position: absolute;
+        top: 20px;
+        font-size: 18px;
+        width: 50%;
+    }
+
+    .form-register .form-submit {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        font-size: 1.4rem;
+    }
+}
+
+
+@media only screen and (max-height: 1600px) and (min-height: 1201px)  {
+    .heading {
+        margin-top: 20px;
+        font-size: 38px;
+        margin-bottom: 13px;
+    }
+    .form {
+        width: 66%;
+    }
+    .form-label {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    .form-group {
+        width: 90%;
+        height: 158px;
+        
+    }
+    .form-input {
+        width: 100%;
+        height: 62px;
+        padding: 4px 24px;
+        font-size: 24px;
+        margin-bottom: 12px;
+
+    }
+    .form-message {
+        font-size: 24px;
+        margin-top: 2px;
+        margin-left: 20px;
+    }
+
+    .form-register .form-aside {
+        
+        position: absolute;
+        top: 20px;
+        font-size: 25px;
+        width: 50%;
+    }
+
+    .form-register .form-submit {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        font-size:34px;
+    }
 }

@@ -12,9 +12,9 @@ const Register = (submitForm) => {
     const {handleChange, values, handleSubmit,errors} = useForm(validate)
     
     return (
-        <React.Fragment>
-        <Header></Header>
-        <div className="form-register">
+        <div className="container">
+        <Header></Header>   
+        <div className='form-register'>
         <form action="" method="POST" className="form" id="form-1" onSubmit={handleSubmit}>
         <h3 className="heading">Đăng ký tài khoản</h3>
        
@@ -65,17 +65,19 @@ const Register = (submitForm) => {
             {errors.password &&  <span className="form-message">{errors.password}</span>}
         </div>
         
+        
         <div className="form-group">
-
+            {Object.keys(errors).length!==0 && <span className="form-messages">Cần nhập đẩy đủ thông tin</span>}
         <div className="form-aside">
             <p>Bạn đã có tài khoản?</p><Link to="/form-login" className="login-link">Đăng nhập</Link>
-        </div><button className="form-submit">Đăng ký</button>
         </div>
-        
+        <button className="form-submit">Đăng ký</button>
+        </div>
+ 
       </form>
       </div>
       <Footer></Footer>
-      </React.Fragment>
+      </div>
     )
 }
 

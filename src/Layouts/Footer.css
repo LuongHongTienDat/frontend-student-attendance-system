@@ -1,4 +1,9 @@
 footer {
+    width: 100vw;
+    margin: 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     background-color: #6EDE8A;
     font-size: 0.8rem;
     color:  #145c44;

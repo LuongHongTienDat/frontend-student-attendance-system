@@ -2,9 +2,9 @@
 /*------------- SIDE-BAR + CONTAINER-------------*/
 /* -------------container---------------- */
 .page {
-    height: 80vh;
+    height: 85vh;
     margin: 0;
-    margin-top: 10%;
+    margin-top: 3rem;
 }
 .container.fr {
     background-color: white;
@@ -62,7 +62,7 @@ ul li .pw {
 
 @media (max-width: 768px) and (min-width: 576px) {
     .page {
-        margin: 5.5rem 0 3rem 0;
+        margin-top: 4rem;
     }
 
     .container.fr {

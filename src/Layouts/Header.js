@@ -5,7 +5,7 @@ import './Header.css';
 
 function Header() {
     return (
-        <nav id="mainNavbar" className="navbar navbar-expand-md navbar-light fixed-top">
+        <nav id="mainNavbar" className="navbar navbar-expand-md navbar-light sticky-top">
             <div className="container-fluid">
                 <a className="navbar-brand" href="https://cse.hcmut.edu.vn/"
                     target="_blank" rel="noopener noreferrer">

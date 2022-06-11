@@ -3,8 +3,10 @@ footer {
     font-size: 0.8rem;
     color:  #145c44;
     padding: 0.8rem;
-    bottom: 0;
-    width: 100%;
-    height: auto;
-    margin-top: auto;
+}
+
+@media (max-width: 576px) {
+    footer {
+        font-size: 0.35rem;
+    }
 }

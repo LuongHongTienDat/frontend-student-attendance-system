@@ -3,7 +3,7 @@
 // và comment cái (header) kia, vì khi import cùng lúc 2 header tui thấy bị lỗi
 import {Fragment} from 'react'
 import Header from './Header'
-// import Header from './header_0/Header_0'
+import Header_0 from './Header_0'
 import Footer from './Footer'
 
 const Layout = (props) => {

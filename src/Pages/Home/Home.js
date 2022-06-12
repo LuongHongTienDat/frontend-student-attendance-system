@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from "./Home.module.css"
 import { BsFolderPlus } from "react-icons/bs";
-
+import Button from '../../Components/Button/Button';
 const Error = props => {
     return (
         <p className={classes['error']}>
@@ -136,9 +136,7 @@ const Home = props => {
                     {!isChrono && <Error>Thời gian chưa hợp lệ</Error>}
                     {isChrono && isFilled && <Error></Error>}
 
-                    <div onClick={submitHandler} className={`${classes['btn-submit']}`} style={{margin:'1rem'}}>
-                       <p>Submit</p>
-                    </div>
+                    <Button style={{'margin-bottom': '2rem', float: 'right'}}  onClick={submitHandler}>Đăng ký</Button>
                 </form>               
             </div>
         </div>

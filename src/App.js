@@ -8,7 +8,7 @@ import Login from './Pages/Login/Login';
 import InfoPanel from './Pages/userPage/info';
 import PasswordChange from './Pages/userPage/passwordChange'
 import UserEventList from './Pages/userPage/eventList'
-// import Form from './Components/Form';
+import Form from './Components/Form';
 
 function App() {
   const admin_data = [
@@ -70,7 +70,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<ListRegister />} />
-        {/* <Route path="/form-register" element={<Form/>}/> */}
+        <Route path="/form-register" element={<Form/>}/> 
         <Route path="/form-login" element={<Login />} />
 
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />

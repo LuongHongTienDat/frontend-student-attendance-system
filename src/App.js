@@ -9,6 +9,9 @@ import InfoPanel from './Pages/userPage/info';
 import PasswordChange from './Pages/userPage/passwordChange'
 import UserEventList from './Pages/userPage/eventList'
 import Form from './Components/Form';
+import EventManage from './Pages/Admin/eventManagement/EventManage'
+import DataManage from './Pages/Admin/dataManagement/DataManage'
+import AccountApproval from './Pages/Admin/accountApproval/AccountApproval'
 
 function App() {
   const admin_data = [
@@ -77,6 +80,9 @@ function App() {
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />
 
+        <Route path="/eventManage" element={<EventManage />} />
+        <Route path="/dataManage" element={<DataManage />} />
+        <Route path="/accountApproval" element={<AccountApproval />} />
       </Routes>
     </Layout>
   );

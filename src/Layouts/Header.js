@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap/dist/js/bootstrap.min.js";
+import {Link} from 'react-router-dom'
 import './Header.css';
 
 function Header() {
@@ -27,7 +28,8 @@ function Header() {
                 <div className="collapse navbar-collapse justify-content-end" id="responsive">
                     <ul className="justify-content-end">
                         <li className="nav-item">
-                            <a className="nav-link admin" href="https://www.youtube.com/watch?v=Mi2cURoOAYY">ADMINISTRATOR</a>
+                            <Link className="nav-link admin" to="/admin">ADMINISTRATOR</Link>
+                            {/* <Link className="nav-link admin" to="/info">USER</Link> */}
                         </li>
                         <li className="nav-item">
                             <a href="#" className="nav-link noti">

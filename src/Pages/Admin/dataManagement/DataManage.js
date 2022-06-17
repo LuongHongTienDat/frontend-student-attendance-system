@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
@@ -43,7 +43,7 @@ function DataManage() {
             <PageSwitcher page="dataManage" />
             <h2>QUẢN LÝ TẬP TIN</h2>
 
-            <div className="container" id="DATA-MANAGE">
+            <div className="container my-5" id="DATA-MANAGE">
                 <table className="table table-borderless">
                     <thead>
                         <tr>

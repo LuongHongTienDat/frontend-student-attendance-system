@@ -23,7 +23,7 @@ function AccountApproval() {
         <div className="bigContainer" id="ADMIN-PAGE">
             <PageSwitcher page="listRegister" />
             <h2>DANH SÁCH ĐĂNG KÝ</h2>
-            <div className="container" id="LIST-REGISTER">
+            <div className="container my-5" id="LIST-REGISTER">
                 <table className="table table-borderless">
                     <thead>
                         <tr>

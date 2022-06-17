@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './EventManage.css'
@@ -17,7 +17,7 @@ function EventManage() {
             <PageSwitcher page="eventManage" />
             <h2>QUẢN LÝ SỰ KIỆN</h2>
 
-            <div className="container" id="EVENT-MANAGE">
+            <div className="container my-5" id="EVENT-MANAGE">
                 <table className="table table-borderless">
                     <thead>
                         <tr>

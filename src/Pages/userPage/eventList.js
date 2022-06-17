@@ -2,15 +2,21 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './sideBar'
 import './eventList.css';
-import { render } from 'react-dom';
 
 function CreateRow(props) {
+    const event = props.event;
+    const eventStatus = {
+        inc: "Sap dien ra",
+        hpn: "Dang dien ra",
+        end: "Ket thuc"
+    }
+
     return (
         <tr>
-            <th className="col-1">{props.ind}</th>
-            <td className="col-5">{props.event.eventName}</td>
-            <td className="col-3">{props.event.time}</td>
-            <td className="col-3">{props.event.st}</td>
+            <th className={`col-1 ${event.st}`}>{props.ind}</th>
+            <td className={`col-5 ${event.st}`}>{event.eventName}</td>
+            <td className={`col-3 ${event.st}`}>{event.time}</td>
+            <td className={`col-3 ${event.st}`}>{eventStatus[event.st]}</td>
         </tr>
     );
 }

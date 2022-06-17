@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './AccountApproval.css'
@@ -25,7 +25,7 @@ function AccountApproval() {
             <PageSwitcher page="accountApproval" />
             <h2>KIỂM DUYỆT TÀI KHOẢN</h2>
 
-            <div className="container" id="ACCOUNT-APPROVAL">
+            <div className="container my-5" id="ACCOUNT-APPROVAL">
                 <table className="table table-borderless">
                     <thead>
                         <tr>

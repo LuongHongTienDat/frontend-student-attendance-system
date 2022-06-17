@@ -6,7 +6,7 @@
 
 #ADMIN-PAGE h2 {
     color: #00432D;
-    margin: 2rem 0 0 5rem;
+    margin: 2rem 0 0 5.6rem;
 }
 
 #ADMIN-PAGE a {
@@ -14,7 +14,7 @@
 }
 
 #ADMIN-PAGE .container {
-    margin: 3rem 5rem;
+    /* margin: 3rem 6rem; */
     background-color: #C1F4BE;
     border-radius: 2rem;
     padding: 0.8rem 1rem;

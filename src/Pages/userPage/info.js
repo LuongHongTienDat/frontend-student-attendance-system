@@ -20,6 +20,8 @@ function BSForm(props) {
                                     value={props.formdata.FullName}
                                     placeholder="Nhập tên..."
                                     required
+                                    onInvalid={(e) => e.target.setCustomValidity("Xin đừng bỏ trống")}
+                                    onInput={(e) => e.target.setCustomValidity("")}
                                     onChange={props.handleChange} />
                             </div>
                             <div className="form-group row">
@@ -30,10 +32,10 @@ function BSForm(props) {
                                         className="form-control form-control-sm"
                                         defaultValue={props.formdata.DoB}
                                         placeholder="Nhập ngày sinh..."
+                                        onInput={(e) => e.target.setCustomValidity("")}
                                         onChange={props.handleChange} />
                                 </div>
                                 <div className="col-md-6">
-                                    {/* regex ko !?*/}
                                     <label htmlFor="studentID" className="studentID">Mã số sinh viên</label>
                                     <input type="text" pattern="[1-2]([0-9]{6})"
                                         name="StudentID"
@@ -41,18 +43,22 @@ function BSForm(props) {
                                         value={props.formdata.StudentID}
                                         placeholder="Nhập ID..."
                                         required
+                                        onInvalid={(e) => e.target.setCustomValidity("Hãy nhập đúng dạng của mã số sinh viên")}
+                                        onInput={(e) => e.target.setCustomValidity("")}
                                         onChange={props.handleChange} />
                                 </div>
                             </div>
                             <div className="form-group form-group-sm">
                                 <label htmlFor="email" className="email">Email</label>
-                                <input type="email"
+                                <input type="text" pattern="[a-z0-9._]+@hcmut.edu.vn"
                                     name="Email"
                                     className="form-control form-control-sm"
                                     aria-describedby="emailHelp"
                                     value={props.formdata.Email}
                                     placeholder="Nhập email..."
                                     required
+                                    onInvalid={(e) => e.target.setCustomValidity("Hãy nhập email có đuôi hcmut.edu.vn")}
+                                    onInput={(e) => e.target.setCustomValidity("")}
                                     onChange={props.handleChange} />
 
                                 <label htmlFor="phone" className="phone">Số điện thoại</label>
@@ -62,6 +68,8 @@ function BSForm(props) {
                                     value={props.formdata.PhoneNum}
                                     placeholder="Nhập số điện thoại..."
                                     required
+                                    onInvalid={(e) => e.target.setCustomValidity("Hãy nhập đúng dạng số điện thoại")}
+                                    onInput={(e) => e.target.setCustomValidity("")}
                                     onChange={props.handleChange} />
                             </div>
 

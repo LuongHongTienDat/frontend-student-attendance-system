@@ -19,51 +19,50 @@ function App() {
       FullName: 'Tieu Khong Cay',
       DoB: "2002-01-19",
       StudentID: '2010000',
-      Email: 'ahihi@gmail.com',
+      Email: 'ahihi@hcmut.edu.vn',
       PhoneNum: '0901073299',
       Password: 'ahjdongok',
       events: [
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'hpn',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'hpn',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'end',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'end',
         },
-
       ],
     }
   ]
@@ -73,7 +72,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<ListRegister />} />
-        <Route path="/form-register" element={<Form/>}/> 
+        <Route path="/form-register" element={<Form />} />
         <Route path="/form-login" element={<Login />} />
 
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />

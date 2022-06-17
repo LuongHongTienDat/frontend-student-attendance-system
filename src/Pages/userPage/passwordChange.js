@@ -15,12 +15,13 @@ function BSForm(props) {
                             <h4 className="tab__password text-center">Đổi mật khẩu</h4>
                             <div className="form-group form-group-sm">
                                 <label htmlFor="old-pass">Mật khẩu cũ</label>
-                                <input type={props.passwordShown ? "text" : "password"}
+                                <input type="password"
                                     name="oldPass"
                                     className="form-control form-control-sm"
                                     value={props.formdata.oldPass}
                                     placeholder="Nhập mật khẩu cũ"
-                                    onChange={props.handleChange} />
+                                    onChange={props.handleChange}
+                                />
 
                                 <label htmlFor="new-pass">Mật khẩu mới</label>
                                 <input type="password"
@@ -63,10 +64,6 @@ class PasswordChange extends React.Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    togglePassword() {
-        this.setState({ passwordShown: !this.passwordShown, })
-    }
-
     handleChange(event) {
         const value = event.target.value;
         const name = event.target.name;
@@ -80,7 +77,7 @@ class PasswordChange extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        alert('Form submitted:' + this.state.FullName);
+        alert('Form submitted');
         console.log(this.state);
     };
 

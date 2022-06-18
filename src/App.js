@@ -9,6 +9,8 @@ import InfoPanel from './Pages/userPage/info';
 import PasswordChange from './Pages/userPage/passwordChange'
 import UserEventList from './Pages/userPage/eventList'
 import Form from './Components/Form';
+import Check_in_out from './Pages/Checkin/Check-in-out';
+
 
 function App() {
   const admin_data = [
@@ -72,7 +74,7 @@ function App() {
         <Route path="/admin" element={<ListRegister />} />
         <Route path="/form-register" element={<Form/>}/> 
         <Route path="/form-login" element={<Login />} />
-
+        <Route path="/check-in-out" element={<Check_in_out />} />
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />

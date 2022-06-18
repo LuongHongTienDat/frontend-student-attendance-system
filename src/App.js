@@ -9,6 +9,9 @@ import InfoPanel from './Pages/userPage/info';
 import PasswordChange from './Pages/userPage/passwordChange'
 import UserEventList from './Pages/userPage/eventList'
 import Form from './Components/Form';
+import EventManage from './Pages/Admin/eventManagement/EventManage'
+import DataManage from './Pages/Admin/dataManagement/DataManage'
+import AccountApproval from './Pages/Admin/accountApproval/AccountApproval'
 
 function App() {
   const admin_data = [
@@ -16,51 +19,50 @@ function App() {
       FullName: 'Tieu Khong Cay',
       DoB: "2002-01-19",
       StudentID: '2010000',
-      Email: 'ahihi@gmail.com',
+      Email: 'ahihi@hcmut.edu.vn',
       PhoneNum: '0901073299',
       Password: 'ahjdongok',
       events: [
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'hpn',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'hpn',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'end',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'inc',
         },
         {
           eventName: 'Mua he xanh CSE 2022',
           time: '28/06/2022',
-          st: 'Dang dien ra',
+          st: 'end',
         },
-
       ],
     }
   ]
@@ -70,13 +72,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<ListRegister />} />
-        <Route path="/form-register" element={<Form/>}/> 
+        <Route path="/form-register" element={<Form />} />
         <Route path="/form-login" element={<Login />} />
 
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />
 
+        <Route path="/eventManage" element={<EventManage />} />
+        <Route path="/dataManage" element={<DataManage />} />
+        <Route path="/accountApproval" element={<AccountApproval />} />
       </Routes>
     </Layout>
   );

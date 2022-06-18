@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from "./Home.module.css"
 import { BsFolderPlus } from "react-icons/bs";
 import Button from '../../Components/Button/Button';
+import InputTime from '../../Components/InputTime/InputTime';
 const Error = props => {
     return (
         <p className={classes['error']}>
@@ -27,24 +28,24 @@ const Home = props => {
             return {...prev,name:e.target.value}
         })
     }
-    const timeStartChangeHandler = (e) => {
+    const timeStartChangeHandler = (value) => {
         setFormInput(prev => {
-            return {...prev,startTime:e.target.value}
+            return {...prev,startTime:value}
         })       
     }
-    const dateStartChangeHandler = (e) => {
+    const dateStartChangeHandler = (value) => {
         setFormInput(prev => {
-            return {...prev,startDate:e.target.value}
+            return {...prev,startDate:value}
         })        
     }
-    const timeEndChangeHandler = (e) => {
+    const timeEndChangeHandler = (value) => {
         setFormInput(prev => {
-            return {...prev,endTime:e.target.value}
+            return {...prev,endTime:value}
         })       
     }
-    const dateEndChangeHandler = (e) => {
+    const dateEndChangeHandler = (value) => {
         setFormInput(prev => {
-            return {...prev,endDate:e.target.value}
+            return {...prev,endDate:value}
         })       
     }
     const locationChangeHandler = (e) => {
@@ -97,7 +98,7 @@ const Home = props => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="time" style={{padding:'0.4rem'}}>Thời gian</label> <br/>
-                        <div className='row' style={{padding:'0.4rem'}}>
+                        {/* <div className='row' style={{padding:'0.4rem'}}>
                             <div className="col-sm-2">
                                 <label htmlFor="timeStart">Từ:</label>
                             </div>
@@ -107,19 +108,19 @@ const Home = props => {
                             <div className="col-sm-5">
                                 <input onChange={dateStartChangeHandler} value={formInput.startDate} type="date" className={`${classes['date-input']} ${classes['short-input']}`} id="timeStart" />
                             </div>
-                        </div>
-
-                        <div className='row' style={{padding:'0.4rem'}}>
-                            <div className="col-sm-2">
-                                <label htmlFor="timeStart">Đến:</label>
-                            </div>
-                            <div className="col-sm-5">
-                                <input onChange={timeEndChangeHandler} value={formInput.endTime} type="time" className={`${classes['time-input']} ${classes['short-input']}`} id="timeStart" />
-                            </div>
-                            <div className="col-sm-5">
-                                <input onChange={dateEndChangeHandler} value={formInput.endDate} type="date" className={`${classes['date-input']} ${classes['short-input']}`} id="timeStart" />
-                            </div>
-                        </div>
+                        </div> */}
+                        <InputTime onChangeTime={timeStartChangeHandler}
+                                   onChangeDate={dateStartChangeHandler}
+                                   time={formInput.startTime} date={formInput.startDate}
+                        >
+                            Từ
+                        </InputTime>
+                        <InputTime onChangeTime={timeEndChangeHandler}
+                                   onChangeDate={dateEndChangeHandler}
+                                   time={formInput.endTime} date={formInput.endDate}
+                        >
+                            Đến
+                        </InputTime>
                     </div>
                     <div className="form-group" >
                         <label htmlFor="place" style={{padding:'0.4rem'}}>Địa điểm</label>
@@ -136,7 +137,7 @@ const Home = props => {
                     {!isChrono && <Error>Thời gian chưa hợp lệ</Error>}
                     {isChrono && isFilled && <Error></Error>}
 
-                    <Button style={{'margin-bottom': '2rem', float: 'right'}}  onClick={submitHandler}>Đăng ký</Button>
+                    <Button style={{marginBotton: '2rem', float: 'right'}}  onClick={submitHandler}>Đăng ký</Button>
                 </form>               
             </div>
         </div>

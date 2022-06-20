@@ -10,7 +10,7 @@ function Header() {
             <div className="container-fluid">
                 <a className="navbar-brand" href="https://cse.hcmut.edu.vn/"
                     target="_blank" rel="noopener noreferrer">
-                    <img src="./hcmut.png" width="45" height="42" className="d-inline-block align-top logo" alt=""></img>
+                    <img src=".././hcmut.png" width="45" height="42" className="d-inline-block align-top logo" alt=""></img>
                     <div className="brand-name d-inline-block">
                         <div>TRƯỜNG ĐẠI HỌC BÁCH KHOA - ĐHQG-HCM</div>
                         <div>KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH</div>

@@ -27,10 +27,10 @@ function PageSwitcher(props) {
 
 
             <ul className="dropdown-menu">
-                <li><Link className="dropdown-item" to="/eventManage">Quản lý sự kiện</Link></li>
-                <li><Link className="dropdown-item" to="/admin">Danh sách đăng ký</Link></li>
-                <li><Link className="dropdown-item" to="/dataManage">Quản lý tập tin</Link></li>
-                <li><Link className="dropdown-item" to="/accountApproval">Kiểm duyệt tài khoản</Link></li>
+                <li><Link className="dropdown-item" to="/admin/eventManage">Quản lý sự kiện</Link></li>
+                <li><Link className="dropdown-item" to="/admin/eventRegister">Danh sách đăng ký</Link></li>
+                <li><Link className="dropdown-item" to="/admin/dataManage">Quản lý tập tin</Link></li>
+                <li><Link className="dropdown-item" to="/admin/accountApproval">Kiểm duyệt tài khoản</Link></li>
             </ul>
         </div>
     );

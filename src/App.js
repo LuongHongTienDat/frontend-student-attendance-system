@@ -71,17 +71,17 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<ListRegister />} />
-        <Route path="/form-register" element={<Form />} />
-        <Route path="/form-login" element={<Login />} />
+        <Route path="/admin/eventRegister" element={<ListRegister />} />
+        <Route path="/register" element={<Form />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />
 
-        <Route path="/eventManage" element={<EventManage />} />
-        <Route path="/dataManage" element={<DataManage />} />
-        <Route path="/accountApproval" element={<AccountApproval />} />
+        <Route path="/admin/eventManage" element={<EventManage />} />
+        <Route path="/admin/dataManage" element={<DataManage />} />
+        <Route path="/admin/accountApproval" element={<AccountApproval />} />
       </Routes>
     </Layout>
   );

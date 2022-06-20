@@ -52,7 +52,7 @@ function DataManage() {
                             <th className="col-3">Thời gian tải lên</th>
                             <th className="col-3 text-end">
                                 <input type="image"
-                                    src="./add-btn.png"
+                                    src=".././add-btn.png"
                                     width="90"
                                     className="align-middle"
                                     onClick={handleAdd.bind(this, newFile)}
@@ -70,21 +70,21 @@ function DataManage() {
                                     <td className="col-3">
                                         <div className="button-group text-end">
                                             <input type="image"
-                                                src="./download.png"
+                                                src=".././download.png"
                                                 width="30"
                                                 className="align-middle"
                                                 onClick={handleDownload.bind(this, e)}
                                             />
 
                                             <input type="image"
-                                                src="./edit.png"
+                                                src=".././edit.png"
                                                 width="30"
                                                 className="align-middle"
                                                 onClick={handleEdit.bind(this, e)}
                                             />
 
                                             <input type="image"
-                                                src="./remove.png"
+                                                src=".././remove.png"
                                                 width="30"
                                                 className="align-middle"
                                                 onClick={handleRemove.bind(this, e)}>

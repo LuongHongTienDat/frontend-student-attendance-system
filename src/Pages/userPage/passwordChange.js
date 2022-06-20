@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './sideBar'
 
@@ -15,11 +15,12 @@ function BSForm(props) {
                             <h4 className="tab__password text-center">Đổi mật khẩu</h4>
                             <div className="form-group form-group-sm">
                                 <label htmlFor="old-pass">Mật khẩu cũ</label>
-                                <input type="password"
+                                <input type="password" pattern={props.password}
                                     name="oldPass"
                                     className="form-control form-control-sm"
-                                    value={props.formdata.oldPass}
                                     placeholder="Nhập mật khẩu cũ"
+                                    onInvalid={(e) => e.target.setCustomValidity("Mật khẩu chưa chính xác")}
+                                    onInput={(e) => e.target.setCustomValidity("")}
                                     onChange={props.handleChange}
                                 />
 
@@ -32,11 +33,13 @@ function BSForm(props) {
                                     onChange={props.handleChange} />
 
                                 <label htmlFor="old-pass">Xác nhận mật khẩu mới</label>
-                                <input type="password"
+                                <input type="password" pattern={props.formdata.newPass}
                                     name="confirmPass"
                                     className="form-control form-control-sm"
                                     value={props.formdata.confirmPass}
                                     placeholder="Nhập lại mật khẩu mới"
+                                    onInvalid={(e) => e.target.setCustomValidity("Mật khẩu xác nhận chưa khớp")}
+                                    onInput={(e) => e.target.setCustomValidity("")}
                                     onChange={props.handleChange} />
                             </div>
                             <button type="submit" className="btn btn-success btn-sm">Lưu</button>
@@ -48,47 +51,43 @@ function BSForm(props) {
     );
 }
 
-class PasswordChange extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            old_FullName: props.data.FullName,
-            FullName: props.data.FullName,
-            oldPass: props.data.Password,
-            newPass: props.data.Password,
-            confirmPass: props.data.Password,
-            passwordShown: false,
-            submitted: false,
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
+function PasswordChange(props) {
+    const [data, setData] = useState({
+        old_FullName: props.data.FullName,
+        FullName: props.data.FullName,
+        oldPass: '',
+        newPass: '',
+        confirmPass: '',
+        submitted: false,
+    })
 
-    handleChange(event) {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
+    const passw = data.oldPass;
+
+    function handleChange(event) {
+        const {name, value} = event.target;
+        setData(prev => ({
+            ...prev,
             [name]: value,
             submitted: false,
-        });
-
-        if (value.confirmPass !== value.newPass) alert("Error!");
+        }));
     }
 
-    handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
+        setData(prev => ({
+            ...prev,
+            oldPass: prev.newPass,
+        }))
         alert('Form submitted');
-        console.log(this.state);
+        console.log(data);
     };
 
-    render = () => {
-        return (
-            <BSForm
-                handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-                formdata={this.state} />
-        );
-    };
+    return (
+        <BSForm
+            handleSubmit={handleSubmit.bind(this)}
+            handleChange={handleChange.bind(this)}
+            formdata={data} password={passw} />
+    );
 }
 
 export default PasswordChange;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './info.css';
 import SideBar from './sideBar'
@@ -82,49 +82,43 @@ function BSForm(props) {
     );
 }
 
-class InfoPanel extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            old_FullName: props.data.FullName,
-            FullName: props.data.FullName,
-            DoB: props.data.DoB,
-            StudentID: props.data.StudentID,
-            Email: props.data.Email,
-            PhoneNum: props.data.PhoneNum,
-            submitted: false,
-        };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
+function InfoPanel(props) {
+    const [data, setData] = useState({
+        old_FullName: props.data.FullName,
+        FullName: props.data.FullName,
+        DoB: props.data.DoB,
+        StudentID: props.data.StudentID,
+        Email: props.data.Email,
+        PhoneNum: props.data.PhoneNum,
+        submitted: false,
+    })
 
-    handleChange(event) {
-        const value = event.target.value;
-        const name = event.target.name;
-        this.setState({
+    function handleChange(event) {
+        const { name, value } = event.target;
+        setData(prev => ({
+            ...prev,
             [name]: value,
             submitted: false,
-        });
+        }));
     }
 
-    handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault();
-        this.setState({
-            old_FullName: this.state.FullName,
+        setData(prev => ({
+            ...prev,
+            old_FullName: data.FullName,
             submitted: true,
-        });
+        }));
         alert('Form submitted (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧');
-        console.log(this.state);
+        console.log(data);
     };
 
-    render = () => {
-        return (
-            <BSForm
-                handleSubmit={this.handleSubmit}
-                handleChange={this.handleChange}
-                formdata={this.state} />
-        );
-    };
+    return (
+        <BSForm
+            handleSubmit={handleSubmit.bind(this)}
+            handleChange={handleChange.bind(this)}
+            formdata={data} />
+    );
 }
 
 export default InfoPanel;

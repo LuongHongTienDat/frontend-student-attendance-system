@@ -19,3 +19,26 @@
     width: 110%;
 
 }
+
+@media screen and (max-width:766px) {
+
+    .time-input{
+        width: 40%;
+    }
+    .date-input{
+        width: 60%;
+    
+    }
+
+    /* some other style */  
+}
+@media screen and (max-width:576px) {
+
+    .short-input{
+        margin: 3px;
+        width: 50%;
+
+    }   
+
+    /* some other style */  
+}

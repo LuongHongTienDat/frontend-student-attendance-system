@@ -12,6 +12,8 @@ import Form from './Components/Form';
 import EventManage from './Pages/Admin/eventManagement/EventManage'
 import DataManage from './Pages/Admin/dataManagement/DataManage'
 import AccountApproval from './Pages/Admin/accountApproval/AccountApproval'
+import Check_in_out from './Pages/Checkin/Check-in-out';
+
 
 function App() {
   const admin_data = [
@@ -71,10 +73,10 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin/eventRegister" element={<ListRegister />} />
         <Route path="/register" element={<Form />} />
         <Route path="/login" element={<Login />} />
 
+        <Route path="/check-in-out" element={<Check_in_out />} />
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />
@@ -82,6 +84,7 @@ function App() {
         <Route path="/admin/eventManage" element={<EventManage />} />
         <Route path="/admin/dataManage" element={<DataManage />} />
         <Route path="/admin/accountApproval" element={<AccountApproval />} />
+        <Route path="/admin/eventRegister" element={<ListRegister />} />
       </Routes>
     </Layout>
   );

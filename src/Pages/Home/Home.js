@@ -4,6 +4,7 @@ import classes from "./Home.module.css"
 import { BsFolderPlus } from "react-icons/bs";
 import Button from '../../Components/Button/Button';
 import InputTime from '../../Components/InputTime/InputTime';
+import ChoosingFileModal from '../../Components/ChoosingFileModal/ChoosingFileModal';
 const Error = props => {
     return (
         <p className={classes['error']}>
@@ -22,7 +23,13 @@ const Home = props => {
     })
     const [isFilled,setIsFilled] = useState(true);
     const [isChrono,setIsChrono] = useState(true);
-
+    const [isChoosingData, setIsChoosingData] = useState(false)
+    const hideModalHandler = ()=>{
+        setIsChoosingData(false)
+    }
+    const openModalHandler = ()=>{
+        setIsChoosingData(true)
+    }
     const nameChangeHandler = (e) => {
         setFormInput(prev => {
             return {...prev,name:e.target.value}
@@ -73,9 +80,11 @@ const Home = props => {
         }
         setIsFilled(true);
         setIsChrono(true);
+        console.log(formInput);
     }
     return (
         <div className={`row ${classes['row-container']}`}>
+            {isChoosingData && <ChoosingFileModal onConfirm = {hideModalHandler} />}
             <div className={`col-md-7 ${classes['container-col-7']}`}>
                 <div>
                     CSE Students Attendance <br/> Website
@@ -98,17 +107,6 @@ const Home = props => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="time" style={{padding:'0.4rem'}}>Thời gian</label> <br/>
-                        {/* <div className='row' style={{padding:'0.4rem'}}>
-                            <div className="col-sm-2">
-                                <label htmlFor="timeStart">Từ:</label>
-                            </div>
-                            <div className="col-sm-5">
-                                <input onChange={timeStartChangeHandler} value={formInput.startTime} type="time" className={`${classes['time-input']} ${classes['short-input']}`} id="timeStart" />
-                            </div>
-                            <div className="col-sm-5">
-                                <input onChange={dateStartChangeHandler} value={formInput.startDate} type="date" className={`${classes['date-input']} ${classes['short-input']}`} id="timeStart" />
-                            </div>
-                        </div> */}
                         <InputTime onChangeTime={timeStartChangeHandler}
                                    onChangeDate={dateStartChangeHandler}
                                    time={formInput.startTime} date={formInput.startDate}
@@ -128,7 +126,7 @@ const Home = props => {
                         placeholder="Nhập địa điểm" style={{padding:'0.4rem'}} onChange={locationChangeHandler}
                         value={formInput.location}/>
                     </div>
-                    <div className={classes.fileContainer}>
+                    <div onClick={openModalHandler} className={classes.fileContainer}>
                         <div className='row'>
                            <p> <BsFolderPlus/>  Chọn tập dữ liệu</p>
                         </div>

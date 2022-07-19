@@ -4,11 +4,14 @@ import useForm from '../../Components/useForm';
 import validate from '../../Components/ValidateForm';
 // import validate from '../../Components/ValidateForm';
 import styles from './Register.module.css'
-
+import { register } from '../../api/userApi';
 
 const Register = () => {
     const {handleChange, values, handleSubmit,errors} = useForm(validate)
-    
+    // const test = async ()=>{
+    //     const result = await register({name: "Dat", email: "abd@hcmut.edu.vn", password:"123456789", passwordConfirm:"123456789"})
+    //     console.log(result);
+    // }
     return (
 
         <div className={styles.container}>
@@ -68,7 +71,7 @@ const Register = () => {
         <div className={styles.formAside}>
             <p>Bạn đã có tài khoản?</p><Link to="/form-login" className={styles.loginLink}>Đăng nhập</Link>
         </div>
-        <button className={styles.formSubmit}>Đăng ký</button>
+        <button className={styles.formSubmit} onClick={test}>Đăng ký</button>
         </div>
  
       </form>

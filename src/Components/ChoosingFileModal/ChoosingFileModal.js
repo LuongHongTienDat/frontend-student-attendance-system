@@ -43,7 +43,7 @@ const ChoosingFileModal = props => {
                     <div >
                         <div className={classes.uploadContainer}>
                             <input type="file" name="file" id="file" className={classes.inputfile} />
-                            <label for="file"><BsFillFileEarmarkArrowUpFill/> Tải lên tệp mới</label>
+                            <label htmlFor="file"><BsFillFileEarmarkArrowUpFill/> Tải lên tệp mới</label>
                         </div>
                     </div>
                     <div >

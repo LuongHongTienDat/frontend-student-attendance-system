@@ -1,8 +1,10 @@
 import {useState,useEffect} from 'react'
 import validate from './ValidateForm'
+import {useNavigate} from 'react-router-dom'
 
 
 const useForm = () => {
+    const navigate = useNavigate()
     const [values, setValues] = useState ({
         fullname: '',
         id: '',
@@ -28,7 +30,10 @@ const useForm = () => {
     }
     useEffect(() => {
         console.log('error' ,errors)
-        if(Object.keys(errors).length === 0 && isSubmitting) console.log(values)
+        if(Object.keys(errors).length === 0 && isSubmitting) {
+            
+            navigate('../')
+        }
     }, [errors])
     return {handleChange, values, handleSubmit, errors}
 }

@@ -33,7 +33,7 @@ export const register = async (formValue) => {
       // make axios post request
       const res = await axios({
         method: "post",
-        url: `${url}/api/user/auth`,
+        url: `${url}/api/v1/login`,
         data: formValue,
         headers: { "Content-Type": "application/json" },
       });

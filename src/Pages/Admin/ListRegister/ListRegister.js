@@ -6,6 +6,7 @@ import './ListRegister.css'
 import dataset from './data.json'
 import PageSwitcher from '../pageSwitcher/PageSwitcher'
 import { DetailBtn, EventDetail } from './../detailBtn/DetailBtn'
+import {getPendingUsers} from '../../../api/adminApi'
 
 function AccountApproval() {
     // only change the 'isAccept' value of real data
@@ -18,6 +19,9 @@ function AccountApproval() {
         e.isAccept = acp === "acp" ? "true" : "false";
         setData(data);
     }
+
+    getPendingUsers();
+    
 
     return (
         <div className="bigContainer" id="ADMIN-PAGE">

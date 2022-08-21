@@ -33,7 +33,7 @@ const Login = () => {
         setErrors(validateLogin(values))
         setIsSubmitting(true)
         if(Object.keys(errors).length === 0 && isSubmitting) {
-           Login()
+          
             // navigate('../')
         }
     }   

@@ -17,7 +17,10 @@ export const register = async (formValue) => {
       });
       return res.data;
     } catch(error) {
-        return error.response.data;
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }    
     }
 
   }
@@ -39,7 +42,11 @@ export const register = async (formValue) => {
       });
       return res.data;
     } catch(error) {
-        return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
+        
     }
     
    
@@ -59,7 +66,10 @@ export const register = async (formValue) => {
       });
       return res.data;
     } catch(error) {
-        return error.response.data;
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
     }
     
    

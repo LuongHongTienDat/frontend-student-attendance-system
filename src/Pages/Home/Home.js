@@ -13,6 +13,7 @@ const Error = props => {
     )
 }
 const Home = props => {
+    console.log(localStorage.getItem('token'))
     const [formInput, setFormInput] = useState({
         name: "",
         startTime: "",

@@ -44,7 +44,7 @@ const Register = () => {
         setIsSubmitting(true)
         if(Object.keys(errors).length === 0 && isSubmitting) {
             const result = await register({...values, passwordConfirm: values.password })
-            if(result.msg === "User have already exist") {
+            if(result.status != 200) {
                 setMsg(result.msg)
             } else {
                 login({email: values.email, password: values.password})

@@ -1,10 +1,13 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from "./Home.module.css"
 import { BsFolderPlus } from "react-icons/bs";
 import Button from '../../Components/Button/Button';
 import InputTime from '../../Components/InputTime/InputTime';
 import ChoosingFileModal from '../../Components/ChoosingFileModal/ChoosingFileModal';
+import { addEvent, postEventAttendances } from '../../api/userApi'
+import AuthContext from '../../store/auth-context';
+
 const Error = props => {
     return (
         <p className={classes['error']}>
@@ -12,8 +15,15 @@ const Error = props => {
         </p>
     )
 }
+const Success = props => {
+    return (
+        <p className={classes['success']}>
+            {props.children}
+        </p>
+    )
+}
 const Home = props => {
-    console.log(localStorage.getItem('token'))
+    const authContext = useContext(AuthContext);
     const [formInput, setFormInput] = useState({
         name: "",
         startTime: "",
@@ -22,8 +32,10 @@ const Home = props => {
         endDate: "",
         location: ""
     })
-    const [isFilled,setIsFilled] = useState(true);
-    const [isChrono,setIsChrono] = useState(true);
+    const [file, setFile] = useState();
+    const [isSuccessful,setIsSuccessful] = useState(false);
+    const [error,setError] = useState("");
+
     const [isChoosingData, setIsChoosingData] = useState(false)
     const hideModalHandler = ()=>{
         setIsChoosingData(false)
@@ -61,11 +73,11 @@ const Home = props => {
             return {...prev,location:e.target.value}
         })       
     }
-    const submitHandler = ()=>{
-        if (Object.values(formInput).some(value => value == false)) 
+    const submitHandler = async()=>{
+        setIsSuccessful(false);
+        if (Object.values(formInput).some(value => value == false) || !file) 
         {
-            setIsFilled(false);
-            setIsChrono(true);
+            setError("Cần điền đầy đủ thông tin để đăng ký")
             return;
         }
         const startTime = formInput.startTime.split(':').map(Number);
@@ -75,17 +87,42 @@ const Home = props => {
         const start = new Date(startDate[0],startDate[1],startDate[2],startTime[0],startTime[1],0);
         const end = new Date(endDate[0],endDate[1],endDate[2],endTime[0],endTime[1],0);
         if (start.getTime() > end.getTime()){
-            setIsFilled(true);
-            setIsChrono(false);
+            setError("Thời gian chưa hợp lệ")
             return;            
         }
-        setIsFilled(true);
-        setIsChrono(true);
-        console.log(formInput);
+
+        const result = await addEvent({
+            name: formInput.name,
+            location: formInput.location,
+            start_date: start.toString(),
+            end_date: end.toString(),
+        },authContext.token);
+        if(result.status){
+                setError(result.msg)
+                return;
+        }
+        const filePost = await postEventAttendances(file,result.data.id,authContext.token);
+        if(filePost.status){
+            setError(filePost.msg)
+            return;
+        }         
+        setFormInput({
+            name: "",
+            startTime: "",
+            startDate: "",
+            endTime: "",
+            endDate: "",
+            location: ""
+        })
+        setError("")
+        setIsSuccessful(true);
+    }
+    const changeFile = (f)=>{
+        setFile(f);
     }
     return (
         <div className={`row ${classes['row-container']}`}>
-            {isChoosingData && <ChoosingFileModal onConfirm = {hideModalHandler} />}
+            {isChoosingData && <ChoosingFileModal selectedFileName={(file)?file.name : ""} onChangeFile={changeFile} onConfirm = {hideModalHandler} />}
             <div className={`col-md-7 ${classes['container-col-7']}`}>
                 <div>
                     CSE Students Attendance <br/> Website
@@ -129,13 +166,13 @@ const Home = props => {
                     </div>
                     <div onClick={openModalHandler} className={classes.fileContainer}>
                         <div className='row'>
-                           <p> <BsFolderPlus/>  Chọn tập dữ liệu</p>
+                           <p> {!file && (<><BsFolderPlus/>  Chọn tập dữ liệu</>)}
+                                {file && (<>{file.name}</>)}
+                           </p>
                         </div>
                     </div>
-                    {!isFilled && <Error>Cần điền đầy đủ thông tin để đăng ký</Error>}
-                    {!isChrono && <Error>Thời gian chưa hợp lệ</Error>}
-                    {isChrono && isFilled && <Error></Error>}
-
+                    {!isSuccessful && <Error>{error}</Error>}
+                    {isSuccessful && <Success>Đã gửi thành công đăng ký</Success>}
                     <Button style={{marginBotton: '2rem', float: 'right'}}  onClick={submitHandler}>Đăng ký</Button>
                 </form>               
             </div>

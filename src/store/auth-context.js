@@ -16,7 +16,6 @@ const calculateRemainingTime = (expirationTime) => {
   const adjExpirationTime = new Date(expirationTime).getTime();
 
   const remainingDuration = adjExpirationTime - currentTime;
-  console.log(remainingDuration);
 
   return remainingDuration;
 };

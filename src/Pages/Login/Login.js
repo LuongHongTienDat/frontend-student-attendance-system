@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from './Login.module.css'
 import validateLogin from '../../Components/ValidateLogin';
 import {useState,useEffect, useContext} from 'react'
-import { register, login } from '../../api/userApi'
+import { login } from '../../api/userApi'
 import AuthContext from '../../store/auth-context';
 import { useNavigate } from 'react-router-dom';
 
@@ -37,7 +37,6 @@ const Login = () => {
         setIsSubmitting(true)
         if(validateLogin(values)) {
             const result = await login(values);
-            console.log(result);
             if(result.status){
                     setValues({
                         email: '',

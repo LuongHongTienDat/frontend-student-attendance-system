@@ -84,8 +84,8 @@ export const AuthContextProvider = (props) => {
     setRole(role);
     setRole(fullName);
     var expirationTime = new Date();
-    expirationTime.setDate(expirationTime.getDate() + 30);
-
+    expirationTime.setDate(expirationTime.getDate() + 10);
+    console.log(expirationTime);
     localStorage.setItem('token', token);
     localStorage.setItem('expirationTime', expirationTime);
     localStorage.setItem('role', role);

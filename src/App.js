@@ -16,59 +16,6 @@ import Check_in_out from './Pages/Checkin/Check-in-out';
 
 
 function App() {
-  const admin_data = [
-    {
-      FullName: 'Tieu Khong Cay',
-      DoB: "2002-01-19",
-      StudentID: '2010000',
-      Email: 'ahihi@hcmut.edu.vn',
-      PhoneNum: '0901073299',
-      Password: 'ahjdongok',
-      events: [
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'inc',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'hpn',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'hpn',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'inc',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'inc',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'end',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'inc',
-        },
-        {
-          eventName: 'Mua he xanh CSE 2022',
-          time: '28/06/2022',
-          st: 'end',
-        },
-      ],
-    }
-  ]
-
   return (
     <Layout>
       <Routes>
@@ -77,9 +24,9 @@ function App() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/check-in-out" element={<Check_in_out />} />
-        <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
-        <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
-        <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />
+        <Route path="/info" element={<InfoPanel />} />
+        <Route path="/userevent" element={<UserEventList />} />
+        <Route path="/password" element={<PasswordChange />} />
 
         <Route path="/admin/eventManage" element={<EventManage />} />
         <Route path="/admin/dataManage" element={<DataManage />} />

@@ -76,47 +76,34 @@
 }
 
 /*--------- COLOR ---------*/
-/*--------- INCOMMING EVENTS ---------*/
-.mini-container tbody .inc, .mini-container tbody .inc {
+/*--------- PENDING EVENTS ---------*/
+.mini-container tbody .pending, .mini-container tbody .pending {
     background-color: #ffeaea;
     border-top: #D00000 1px solid;
     border-bottom: #D00000 1px solid;
 }
 
-.mini-container tbody th.inc {
+.mini-container tbody th.pending {
     border-left: #D00000 1px solid;
 }
 
-.mini-container tbody td.inc:nth-of-type(3){
+.mini-container tbody td.pending:nth-of-type(3){
     color: white;
     background-color: #D00000;
 }
 
-/*--------- HAPPENING EVENTS ---------*/
-.mini-container tbody th.hpn, .mini-container tbody td.hpn {
-    background-color: #fff5e6;
-    border-top: #FAAA33 1px solid;
-    border-bottom: #FAAA33 1px solid;
-}
 
-.mini-container tbody th.hpn {
-    border-left: #FAAA33 1px solid;
-}
-
-.mini-container tbody td.hpn:nth-of-type(3){
-    background-color: #FAAA33;
-}
-/*--------- ENDED EVENTS ---------*/
-.mini-container tbody th.end, .mini-container tbody td.end{
+/*--------- ACCEPTED EVENTS ---------*/
+.mini-container tbody th.accepted, .mini-container tbody td.accepted{
     background-color: #e6ffec;
     border-top: #3ED163 1px solid;
     border-bottom: #3ED163 1px solid;
 }
 
-.mini-container tbody th.end {
+.mini-container tbody th.accepted {
     border-left: #3ED163 1px solid;
 }
 
-.mini-container tbody td.end:nth-of-type(3){
+.mini-container tbody td.accepted:nth-of-type(3){
     background-color: #3ED163;
 }

@@ -1,46 +1,54 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './sideBar'
 import './eventList.css';
+import { getUserEvents } from '../../api/userApi';
+import AuthContext from '../../store/auth-context';
 
 function CreateRow(props) {
     const event = props.event;
     const eventStatus = {
-        inc: "Sap dien ra",
-        hpn: "Dang dien ra",
-        end: "Ket thuc"
+        accepted: "Đã duyệt",
+        pending: "Chưa duyệt",
     }
 
     return (
         <tr>
-            <th className={`col-1 ${event.st}`}>{props.ind}</th>
-            <td className={`col-5 ${event.st}`}>{event.eventName}</td>
-            <td className={`col-3 ${event.st}`}>{event.time}</td>
-            <td className={`col-3 ${event.st}`}>{eventStatus[event.st]}</td>
+            <th className={`col-1 ${event.status}`}>{props.ind}</th>
+            <td className={`col-5 ${event.status}`}>{event.name}</td>
+            <td className={`col-3 ${event.status}`}>
+                {event.start_date.substring(4,15)} 
+            </td>
+            <td className={`col-3 ${event.status}`}>{eventStatus[event.status]}</td>
         </tr>
     );
 }
 
-function UserEventList(props) {
-    const [data, setData] = useState({
-        old_FullName: props.data.FullName,
-        FullName: props.data.FullName,
-        submitted: false,
-        events: props.data.events,
-    })
+function UserEventList() {
+    const authContext = useContext(AuthContext);
+    const [data, setData] = useState({});
 
-    const numOfEvents = data.events.length;
+    useEffect(() => {
+        (
+            async () => {
+                const res = await getUserEvents(authContext.token);
+                setData(res.data);
+                console.log(res.data);
+            }
+        )();
+    }, [])
+
+    const numOfEvents = data.length;
     const trList = [];
     for (let i = 1; i <= numOfEvents; i++) {
-        trList.push(<CreateRow ind={i} event={data.events[i - 1]} key={i} />);
+        trList.push(<CreateRow ind={i} event={data[i - 1]} key={i} />);
     }
-
 
     return (
         <div className="page">
             <div className="container fr">
                 <div className="row">
-                    <SideBar formdata={data} tab={1} />
+                    <SideBar tab={1} />
                     <div className="col-8">
                         <h4 className="tab__event text-center">Sự kiện</h4>
                         <div className="border">

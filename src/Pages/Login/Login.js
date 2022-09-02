@@ -2,22 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Login.module.css'
 import validateLogin from '../../Components/ValidateLogin';
-import {useState,useEffect, useContext} from 'react'
+import {useState, useContext} from 'react'
 import { login } from '../../api/userApi'
 import AuthContext from '../../store/auth-context';
-import { useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
-    const navigate = useNavigate()
     const authContext = useContext(AuthContext);
     const [values, setValues] = useState ({
         email: '',
         password: ''    
     })
 
-    const [msg, setMsg] = useState('')
+    // const [msg, setMsg] = useState('')
     
     const [errors, setErrors] = useState({})
     
@@ -46,7 +44,7 @@ const Login = () => {
                     return;
             }
             authContext.login(result.token,result.msg.fullName,result.msg.role);
-            navigate("../");
+            window.location.href = "../";
         }
     }   
     return (

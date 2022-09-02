@@ -160,5 +160,67 @@ export const register = async (formValue) => {
    
   }
 
+  export const getEventDetails = async(eid, token) => {
+    if(token === undefined){
+      return "Some information is missing";
+    }
+    try {
+      // make axios post request
+      const res = await axios({
+        method: "get",
+        url:`${url}/api/v1/event/${eid}`,
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
+  }
+
+  export const checkin = async(sid, eid, token) => {
+    if(token === undefined){
+      return "Some information is missing";
+    }
+    try {
+      // make axios post request
+      const res = await axios({
+        method: "post",
+        url:`${url}/api/v1/user/attendance/check_in`,
+        data: { SID: sid, EID: eid},
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
+  }
+
+  export const checkout = async(sid, eid, token) => {
+    if(token === undefined){
+      return "Some information is missing";
+    }
+    try {
+      // make axios post request
+      const res = await axios({
+        method: "post",
+        url:`${url}/api/v1/user/attendance/check_out`,
+        data: { SID: sid, EID: eid},
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
+  }
+
 
 

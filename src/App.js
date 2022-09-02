@@ -76,7 +76,7 @@ function App() {
         <Route path="/register" element={<Form />} />
         <Route path="/login" element={<Login />} />
 
-        <Route path="/check-in-out" element={<Check_in_out />} />
+        <Route path="/check-in-out/:eid" element={<Check_in_out />} />
         <Route path="/info" element={<InfoPanel data={admin_data[0]} />} />
         <Route path="/userevent" element={<UserEventList data={admin_data[0]} />} />
         <Route path="/password" element={<PasswordChange data={admin_data[0]} />} />

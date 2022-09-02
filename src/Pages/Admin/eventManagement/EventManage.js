@@ -1,16 +1,27 @@
-import React, { useState} from 'react'
+import React, { useState, useEffect, useContext} from 'react'
+import moment from 'moment'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import './EventManage.css'
-import data from './data.json'
 import PageSwitcher from './../pageSwitcher/PageSwitcher'
 import {DetailBtn, EventDetail} from './../detailBtn/DetailBtn'
-
+import {getCheckedEvents} from '../../../api/adminApi'
+import AuthContext from '../../../store/auth-context'
 function EventManage() {
-    const [event, setEvent] = useState(data);
-    // useEffect(() => {
-    //     setEvent(data);
-    // }, []);
+    const authContext = useContext(AuthContext);
+    const [event, setEvent] = useState([]);
+    const formatDate = (str) => {
+        const day = new Date(str)
+        return moment(day).format('L')+' '+moment(day).format('LT')
+    }
+    useEffect(() => {
+        (
+            async () => {
+                const result = await getCheckedEvents (authContext.token)
+                setEvent(result.data);
+            }
+        )();
+    },[])
 
     return (
         <div className="bigContainer" id="ADMIN-PAGE">
@@ -22,25 +33,25 @@ function EventManage() {
                     <thead>
                         <tr>
                             <th className="col-1">STT</th>
-                            <th className="col-4">Tên sự kiện</th>
-                            <th className="col-3">Thời gian đăng ký</th>
+                            <th className="col-3">Tên sự kiện</th>
+                            <th className="col-4 text-center">Thời gian diễn ra sự kiện</th>
                             <th className="col-2"></th>
                             <th className="col-2"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {event.map((e, index) =>
                             <tr key={index}
-                                className={e.isAccepted === "true" ? "" : "declined"}>
-                                <th className="col-1">{index}</th>
-                                <td className="col-4">{e.eventName}</td>
-                                <td className="col-3">{e.time}</td>
-                                <td className="col-2">
+                                className={e.status === "accepted" ? "" : "declined"}>
+                                <th className="col-1 align-middle">{index+1}</th>
+                                <td className="col-3 align-middle">{e.name}</td>
+                                <td className="col-4 align-middle text-center">{formatDate(e.end_date) + ' - '+ formatDate(e.end_date)}</td>
+                                <td className="col-2 align-middle">
                                     <DetailBtn data={e} />
                                     <EventDetail data={e} page="eM"/>
                                 </td>
-                                <td className="col-2">
-                                    {event.isAccepted === "true" ?
+                                <td className="col-2 align-middle">
+                                    {e.status === "accepted" ?
                                         "Đã duyệt" : "Không duyệt"}
                                 </td>
                             </tr>

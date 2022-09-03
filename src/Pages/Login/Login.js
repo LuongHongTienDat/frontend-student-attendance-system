@@ -43,6 +43,7 @@ const Login = () => {
                     setErrors({password:result.msg})
                     return;
             }
+            console.log(result)
             authContext.login(result.token,result.msg.fullName,result.msg.role);
             window.location.href = "../";
         }

@@ -44,13 +44,10 @@ const Register = () => {
         setIsSubmitting(true)
         if(Object.keys(errors).length === 0 && isSubmitting) {
             const result = await register({...values, passwordConfirm: values.password })
-            if(result.status != 200) {
+            console.log(result)
+            if(result.status) {
                 setMsg(result.msg)
             } else {
-                login({email: values.email, password: values.password})
-                .then((res) => {
-                    console.log(res)
-                })
                 setMsg('')
                 handleShow()
             }

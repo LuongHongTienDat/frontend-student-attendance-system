@@ -17,12 +17,8 @@ function AccountApproval() {
     // only change the 'isAccept' value of real data
     const [data, setData] = useState([]);
     // whenever acp or decline remove the 'display' data from sceen
-    const [isListEventsChange, setIsListEventsChange] = useState(false);
 
     const handleAccept = (id) => {
-        // setDisplay(display.filter((t) => t !== e));
-        // e.isAccept = acp === "acp" ? "true" : "false";
-        // setData(data);
         (
             async () => {
                 await updateEventStatus (authContext.token, id, 'accepted')
@@ -54,8 +50,6 @@ function AccountApproval() {
                 setData(result.data);
             }
         )();
-        setIsListEventsChange(false);
-        console.log('gfhfhhfhf')
     },[])
 
 

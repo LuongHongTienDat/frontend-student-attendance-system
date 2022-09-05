@@ -7,6 +7,7 @@ import PageSwitcher from './../pageSwitcher/PageSwitcher'
 import {DetailBtn, EventDetail} from './../detailBtn/DetailBtn'
 import {getCheckedEvents} from '../../../api/adminApi'
 import AuthContext from '../../../store/auth-context'
+import { JsonToExcel } from '../../../Components/JsonToExcel/JsonToExcel'
 function EventManage() {
     const authContext = useContext(AuthContext);
     const [event, setEvent] = useState([]);
@@ -46,9 +47,18 @@ function EventManage() {
                                 <th className="col-1 align-middle">{index+1}</th>
                                 <td className="col-3 align-middle">{e.name}</td>
                                 <td className="col-4 align-middle text-center">{formatDate(e.end_date) + ' - '+ formatDate(e.end_date)}</td>
-                                <td className="col-2 align-middle">
+                                <td className="col-2">
                                     <DetailBtn data={e} />
                                     <EventDetail data={e} page="eM"/>
+                                    <div className='result'>
+                                    {e.status === "accepted"&&
+                                        <JsonToExcel
+                                            fileName="KQ_DiemDanh"
+                                            text="Kết quả"
+                                            id={e.id}
+                                        />
+                                    }
+                                    </div>
                                 </td>
                                 <td className="col-2 align-middle">
                                     {e.status === "accepted" ?

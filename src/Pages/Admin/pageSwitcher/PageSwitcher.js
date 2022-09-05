@@ -13,12 +13,10 @@ function PageSwitcher(props) {
     return (
         <div className="btn-group" id="SWITCHER">
 
-            <button type="button"
+            <span
                 className="btn btn-warning"
                 id="btnName"
-                onClick={() => {
-                    alert("Bấm nút (づ｡◕‿‿◕｡)づ ⬇️ kế bên á!")
-                }}>{pageName[props.page]}</button>
+            >{pageName[props.page]}</span>
             <button type="button"
                 className="btn btn-light dropdown-toggle dropdown-toggle-split"
                 data-bs-toggle="dropdown" aria-expanded="false">

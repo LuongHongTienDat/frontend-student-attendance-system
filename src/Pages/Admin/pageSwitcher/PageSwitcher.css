@@ -11,6 +11,13 @@
     margin: 3vh 0 0 72vw;
 }
 
+#SWITCHER .dropdown-menu {
+    background-color: #fff;
+    width: 14.2rem;
+    border: none;
+}
+
+
 
 #SWITCHER .btn.btn-light.dropdown-toggle {
     border-radius: 1rem;

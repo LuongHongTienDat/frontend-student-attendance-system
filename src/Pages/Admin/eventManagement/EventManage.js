@@ -47,7 +47,7 @@ function EventManage() {
                                 <th className="col-1 align-middle">{index+1}</th>
                                 <td className="col-3 align-middle">{e.name}</td>
                                 <td className="col-4 align-middle text-center">{formatDate(e.end_date) + ' - '+ formatDate(e.end_date)}</td>
-                                <td className="col-2">
+                                <td className="col-2 align-middle text-center">
                                     <DetailBtn data={e} />
                                     <EventDetail data={e} page="eM"/>
                                     <div className='result'>

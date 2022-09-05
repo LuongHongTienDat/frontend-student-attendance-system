@@ -35,12 +35,13 @@ const AdminUser = () => {
                 }
             </li>
             <li className="nav-item">
-                <a href="#" className="nav-link noti">
-                    <img className="d-inline-block my-3" src="./noti_icon.png" width="18" alt=""></img>
-                </a>
+                {
+                    authContext.role === '0' ?
+                        <Link className="nav-link events" to="/userevent">SỰ KIỆN</Link> : ""
+                }
             </li>
             <li className="nav-item">
-                <button type="button" className="btn btn-success" onClick={handleClick}>LOGOUT</button>
+                <button type="button" className="btn btn-success" onClick={handleClick}>ĐĂNG XUẤT</button>
             </li>
         </React.Fragment>
     );
@@ -49,11 +50,11 @@ const AdminUser = () => {
 const Visitor = () => {
     return (
         <React.Fragment>
-            <li className="nav-item">
-                <Link to="/register" className="nav-link align-text-top signup">Đăng ký</Link>
+            <li className="nav-item align-middle">
+                <Link to="/register" className="nav-link signup align-text-top">Đăng ký</Link>
             </li>
-            <li className="nav-item">
-                <Link to="/login" className="nav-link align-text-top login">Đăng nhập</Link>
+            <li className="nav-item align-middle">
+                <Link to="/login" className="nav-link login align-text-top">Đăng nhập</Link>
             </li>
         </React.Fragment>);
 }

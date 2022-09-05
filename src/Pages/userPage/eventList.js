@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideBar from './sideBar'
 import './eventList.css';
-import { getUserEvents } from '../../api/userApi';
+import { getUserEvents, getAttendanceResult } from '../../api/userApi';
 import AuthContext from '../../store/auth-context';
+import { JsonToExcel } from '../../Components/JsonToExcel/JsonToExcel'
 
 function CreateRow(props) {
     const event = props.event;
+
     const eventStatus = {
         accepted: "Đã duyệt",
         pending: "Chưa duyệt",
@@ -15,9 +18,22 @@ function CreateRow(props) {
     return (
         <tr>
             <th className={`col-1 ${event.status}`}>{props.ind}</th>
-            <td className={`col-5 ${event.status}`}>{event.name}</td>
+            <td className={`col-4 ${event.status}`}>
+                {event.status === 'accepted' ?
+                    <Link to="/check-in-out/:eid"
+                        style={{ textDecoration: 'none', color: 'black', fontWeight: '600' }}>
+                        {event.name}
+                    </Link> : event.name}
+            </td>
             <td className={`col-3 ${event.status}`}>
-                {event.start_date.substring(4,15)} 
+                {event.start_date.substring(4, 15)}
+            </td>
+            <td className={`col-1 ${event.status}`}>
+                <JsonToExcel
+                    fileName="KQ_DiemDanh"
+                    text="KQ"
+                    id={event.id}
+                />
             </td>
             <td className={`col-3 ${event.status}`}>{eventStatus[event.status]}</td>
         </tr>
@@ -58,9 +74,10 @@ function UserEventList() {
                                     <thead>
                                         <tr>
                                             <th className="col-1">STT</th>
-                                            <th className="col-5">Tên sự kiện</th>
-                                            <th className="col-3" >Thời gian</th>
-                                            <th className="col-3">Trạng Thái</th>
+                                            <th className="col-4">Tên sự kiện</th>
+                                            <th className="col-3">Thời gian</th>
+                                            <th className="col-1"></th>
+                                            <th className="col-3"></th>
                                         </tr>
                                     </thead>
                                     <tbody>{trList}</tbody>

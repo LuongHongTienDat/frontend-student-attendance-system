@@ -24,10 +24,14 @@ ul {
     margin: 0;
 }
 
+#mainNavbar li.nav-item {
+    display: inline;
+}
+
 #mainNavbar .nav-link {
     font-size: 1rem;
     display: inline;
-    margin: 0 0.3rem 0 0.3rem;
+    margin: 0 0.2rem 0 0.2rem;
     padding: 0.2rem 0.8rem;
     border-radius: 0.9rem;
 }
@@ -35,10 +39,6 @@ ul {
 #mainNavbar .nav-link.admin {
     color: #007714;
     font-weight: 700;
-}
-
-#mainNavbar li.nav-item {
-    display: inline;
 }
 
 #mainNavbar .nav-link:hover {
@@ -55,12 +55,13 @@ ul {
 }
 
 #mainNavbar button.btn {
+    font-size: 1rem;
     border-radius: 2rem;
     background-color: #6EDE8A;
     color: #00432D;
     border-color: #6EDE8A;
     padding: 0.1rem 0.8rem;
-    margin: 0 1rem 0 0;
+    margin: 0 1rem 0 0.3rem;
 }
 
 #mainNavbar button.btn:hover {

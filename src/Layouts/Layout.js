@@ -1,5 +1,3 @@
-// i don't know why but dùng header nào thì import header đó thôi 
-// và comment cái (header) kia, vì khi import cùng lúc 2 header tui thấy bị lỗi
 import {Fragment} from 'react'
 import Header from './Header'
 import Footer from './Footer'

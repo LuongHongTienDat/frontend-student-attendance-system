@@ -55,14 +55,18 @@ const Login = () => {
                 <input id="password" type="password" name="password" placeholder="Nhập mật khẩu" className={styles.formInput} value={values.password} onChange = {handleChange}/>
                 {errors.password &&  <span className={styles.formMessage}>{errors.password}</span>}
             </div>
-            <div className={`${styles.formGroup} ${styles.groupLogin}`}>
-            <div className={styles.btnLogin}>
-            </div><button className={styles.formSubmit}>Đăng nhập</button>
+            <div className={`${styles.formGroupGrid1} `}>
+                <div className={styles.item1Grid}>
+                    <div  className={styles.formAside}>
+                        <p>Bạn chưa có tài khoản?</p><Link to="/register" className={styles.registerLink}>Đăng kí</Link>
+                        <Link to="#" className={styles.forgotLink}>Quên mật khẩu</Link>
+                    </div> 
+                </div>
+                <div className={styles.item2Grid}>
+                    <button className={styles.formSubmit}>Đăng nhập</button>
+                </div>
             </div>
-            <div  className={styles.formAside}>
-                <p>Bạn chưa có tài khoản?</p><Link to="/form-register" className={styles.registerLink}>Đăng kí</Link>
-                <Link to="#" className={styles.forgotLink}>Quên mật khẩu</Link>
-            </div>
+              
             </form>
         </div> 
       </React.Fragment>

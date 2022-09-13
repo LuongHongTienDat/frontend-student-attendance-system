@@ -47,6 +47,12 @@ const ChoosingFileModal = props => {
                         </div>
                     </div>
                     <div >
+                        <p className={classes.instructText}>
+                           <div>YÊU CẦU LÀ FILE EXCEL BAO GỒM CÁC CỘT:</div> 
+                           - SID (Mã số sinh viên). <br/>
+                           - lname (Họ). <br/>
+                           - fname (Tên). <br/>
+                        </p>
                         <p className={classes.orText}>
                            -- TẬP DỮ LIỆU CÓ SẴN -- 
                         </p>

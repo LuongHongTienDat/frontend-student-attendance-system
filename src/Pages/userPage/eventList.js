@@ -20,7 +20,7 @@ function CreateRow(props) {
             <th className={`col-1 ${event.status}`}>{props.ind}</th>
             <td className={`col-4 ${event.status}`}>
                 {event.status === 'accepted' ?
-                    <Link to="/check-in-out/:eid"
+                    <Link to={`/check-in-out/${event.id}`}
                         style={{ textDecoration: 'none', color: 'black', fontWeight: '600' }}>
                         {event.name}
                     </Link> : event.name}

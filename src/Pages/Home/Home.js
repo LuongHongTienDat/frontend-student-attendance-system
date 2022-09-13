@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react'
+import {useState, useContext} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import classes from "./Home.module.css"
 import { BsFolderPlus } from "react-icons/bs";
@@ -7,6 +7,7 @@ import InputTime from '../../Components/InputTime/InputTime';
 import ChoosingFileModal from '../../Components/ChoosingFileModal/ChoosingFileModal';
 import { addEvent, postEventAttendances } from '../../api/userApi'
 import AuthContext from '../../store/auth-context';
+import { useNavigate } from 'react-router-dom';
 
 const Error = props => {
     return (
@@ -23,6 +24,7 @@ const Success = props => {
     )
 }
 const Home = props => {
+    const navigate = useNavigate()
     const authContext = useContext(AuthContext);
     const [formInput, setFormInput] = useState({
         name: "",
@@ -41,6 +43,9 @@ const Home = props => {
         setIsChoosingData(false)
     }
     const openModalHandler = ()=>{
+        if (!authContext.token){
+            navigate("/login");
+        }
         setIsChoosingData(true)
     }
     const nameChangeHandler = (e) => {
@@ -74,6 +79,9 @@ const Home = props => {
         })       
     }
     const submitHandler = async()=>{
+        if (!authContext.token){
+            navigate("/login");
+        }
         setIsSuccessful(false);
         if (Object.values(formInput).some(value => value == false) || !file) 
         {

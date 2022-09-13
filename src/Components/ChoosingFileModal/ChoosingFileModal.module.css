@@ -17,6 +17,13 @@
     overflow: hidden;
   }
   
+  .instructText{
+    padding-left: 2rem;
+    font-size: medium;
+  }
+  .instructText div{
+    font-weight: bold;;
+  }
   .header {
     background: #c3f3bb;
     padding-top: 1rem;
@@ -78,7 +85,8 @@
 
   .orText{
     text-align: center;
-    font-size: small;   
+    font-size: medium;
+    font-weight: bold;   
   }
   .uploadText:hover{
     text-decoration:underline ;

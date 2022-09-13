@@ -6,10 +6,29 @@
     text-align: center;
 }
 
-#DATA-MANAGE input {
+#DATA-MANAGE input,label{
     margin-left: 1rem;
 } 
+
+#DATA-MANAGE .inputAddFile {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+} 
+
+#DATA-MANAGE .labelAddFile {
+    cursor: pointer;
+} 
+
+#DATA-MANAGE .labelAddFile:hover {
+    opacity: 80%;
+} 
+
+
 
 #DATA-MANAGE tbody th, #DATA-MANAGE tbody td {
     padding: 0.5rem 0.5rem;
 }
+
+

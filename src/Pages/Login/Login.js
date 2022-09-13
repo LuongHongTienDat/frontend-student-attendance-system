@@ -2,19 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Login.module.css'
 import validateLogin from '../../Components/ValidateLogin';
-import {useState,useEffect} from 'react'
-import { register, login } from '../../api/userApi'
-
+import {useState, useContext} from 'react'
+import { login } from '../../api/userApi'
+import AuthContext from '../../store/auth-context';
 
 
 
 const Login = () => {
+    const authContext = useContext(AuthContext);
     const [values, setValues] = useState ({
         email: '',
         password: ''    
     })
 
-    const [msg, setMsg] = useState('')
+    // const [msg, setMsg] = useState('')
     
     const [errors, setErrors] = useState({})
     
@@ -32,9 +33,19 @@ const Login = () => {
        e.preventDefault()
         setErrors(validateLogin(values))
         setIsSubmitting(true)
-        if(Object.keys(errors).length === 0 && isSubmitting) {
-          
-            // navigate('../')
+        if(validateLogin(values)) {
+            const result = await login(values);
+            if(result.status){
+                    setValues({
+                        email: '',
+                        password: ''  
+                    })
+                    setErrors({password:result.msg})
+                    return;
+            }
+            console.log(result)
+            authContext.login(result.token,result.msg.fullName,result.msg.role);
+            window.location.href = "../";
         }
     }   
     return (
@@ -66,7 +77,6 @@ const Login = () => {
                     <button className={styles.formSubmit}>Đăng nhập</button>
                 </div>
             </div>
-              
             </form>
         </div> 
       </React.Fragment>

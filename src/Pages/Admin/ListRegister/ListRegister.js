@@ -1,23 +1,63 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect , useContext} from 'react'
+import moment from 'moment'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import './ListRegister.css'
-import dataset from './data.json'
 import PageSwitcher from '../pageSwitcher/PageSwitcher'
 import { DetailBtn, EventDetail } from './../detailBtn/DetailBtn'
+import {getPendingEvents} from '../../../api/adminApi'
+import {updateEventStatus} from '../../../api/adminApi'
+import AuthContext from '../../../store/auth-context'
 
 function AccountApproval() {
-    // only change the 'isAccept' value of real data
-    const [data, setData] = useState(dataset);
-    // whenever acp or decline remove the 'display' data from sceen
-    let [display, setDisplay] = useState(dataset);
 
-    const handleAccept = (e, acp) => {
-        setDisplay(display.filter((t) => t !== e));
-        e.isAccept = acp === "acp" ? "true" : "false";
-        setData(data);
+
+    const authContext = useContext(AuthContext);
+    // only change the 'isAccept' value of real data
+    const [data, setData] = useState([]);
+    // whenever acp or decline remove the 'display' data from sceen
+    const [isListEventsChange, setIsListEventsChange] = useState(false);
+
+    const handleAccept = (id) => {
+        // setDisplay(display.filter((t) => t !== e));
+        // e.isAccept = acp === "acp" ? "true" : "false";
+        // setData(data);
+        (
+            async () => {
+                await updateEventStatus (authContext.token, id, 'accepted')
+            }
+        )();
+        setData(data.filter((t)=>t.id!==id))
+
     }
+
+    const formatDate = (str) => {
+        const day = new Date(str)
+        return moment(day).format('L')+' '+moment(day).format('LT')
+    }
+
+    const handleDecline = (id) => {
+        (
+            async () => {
+                await updateEventStatus (authContext.token, id, 'rejected')
+            }
+        )();
+        setData(data.filter((t)=>t.id!==id))
+    }
+
+
+    useEffect(() => {
+        (
+            async () => {
+                const result = await getPendingEvents (authContext.token)
+                setData(result.data);
+            }
+        )();
+        setIsListEventsChange(false);
+        console.log('gfhfhhfhf')
+    },[])
+
 
     return (
         <div className="bigContainer" id="ADMIN-PAGE">
@@ -29,19 +69,19 @@ function AccountApproval() {
                         <tr>
                             <th className="col-1">STT</th>
                             <th className="col-3">Tên sự kiện</th>
-                            <th className="col-3 text-center">Thời gian đăng ký</th>
+                            <th className="col-3 text-center">Thời gian diễn ra sự kiện</th>
                             <th className="col-2"></th>
                             <th className="col-4"></th>
                         </tr>
                     </thead>
                     <TransitionGroup component="tbody">
                         {/* <tbody> */}
-                            {display.map((e, index) => (
-                                <CSSTransition key={index} timeout={500} classNames="infoRow">
+                            {data.map((e, index) => (
+                                <CSSTransition key={index} timeout={0} classNames="infoRow">
                                     <tr>
                                         <th className="col-1 align-middle">{index + 1}</th>
-                                        <td className="col-3 align-middle">{e.eventName}</td>
-                                        <td className="col-3 align-middle text-center">{e.time}</td>
+                                        <td className="col-3 align-middle">{e.name}</td>
+                                        <td className="col-3 align-middle text-center">{formatDate(e.end_date) +' - '+formatDate(e.end_date)}</td>
                                         <td className="col-2 text-end align-middle">
                                             <DetailBtn />
                                             <EventDetail data={e} />
@@ -50,12 +90,12 @@ function AccountApproval() {
                                             <div className="button-group text-end">
                                                 <button type="button"
                                                     className="accept"
-                                                    onClick={handleAccept.bind(this, e, "acp")}>
+                                                    onClick={() => handleAccept(e.id)}>
                                                     Đồng ý
                                                 </button>
                                                 <button type="button"
                                                     className="decline"
-                                                    onClick={handleAccept.bind(this, e, "dcn")}>
+                                                    onClick={() => handleDecline(e.id)}>
                                                     Từ chối
                                             </button>
                                             </div>

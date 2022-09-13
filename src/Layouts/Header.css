@@ -24,29 +24,48 @@ ul {
     margin: 0;
 }
 
-#mainNavbar a.nav-link {
+#mainNavbar .nav-link {
     font-size: 1rem;
     display: inline;
-    margin: 0 0 0 0.5rem;
-    padding: 0.2rem 1rem;
+    margin: 0 0.3rem 0 0.3rem;
+    padding: 0.2rem 0.8rem;
     border-radius: 0.9rem;
+}
+
+#mainNavbar .nav-link.admin {
+    color: #007714;
+    font-weight: 700;
 }
 
 #mainNavbar li.nav-item {
     display: inline;
 }
 
-#mainNavbar a.nav-link:hover {
+#mainNavbar .nav-link:hover {
     background-color:#5dc475;
     color: white;
 }
 
-#mainNavbar a.nav-link.noti:hover {
+#mainNavbar .nav-link.noti:hover {
     background-color: azure;
 }
 
 #mainNavbar a.nav-link.login, a.nav-link.signup {
     margin-right: 1rem;
+}
+
+#mainNavbar button.btn {
+    border-radius: 2rem;
+    background-color: #6EDE8A;
+    color: #00432D;
+    border-color: #6EDE8A;
+    padding: 0.1rem 0.8rem;
+    margin: 0 1rem 0 0;
+}
+
+#mainNavbar button.btn:hover {
+    background-color: #5dc475;
+    color: white;
 }
 
 @media (max-width: 768px) {

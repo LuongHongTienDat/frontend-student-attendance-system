@@ -11,7 +11,10 @@ export const getPendingEvents = async (token)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -25,7 +28,10 @@ export const getCheckedEvents = async (token)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -39,7 +45,10 @@ export const getPendingUsers = async (token)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 export const getCheckedUsers = async (token)=>{
@@ -52,7 +61,10 @@ export const getCheckedUsers = async (token)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -67,7 +79,10 @@ export const updateEventStatus = async (token, id, status)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -82,7 +97,10 @@ export const updateUserStatus = async (token, email, status)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -98,7 +116,10 @@ export const updateUserRole = async (token, email, role)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
 }
 
@@ -115,6 +136,62 @@ export const addAvailableFile = async (token, formData)=>{
         });
         return res.data;
       } catch(error) {
-          return error.response.data;
+        return {
+          status: error.response.status,
+          ...error.response.data
+        }
       }
+}
+
+export const getAvailableFiles = async (token)=>{
+  try {
+      // make axios post request
+      const res = await axios({
+        method: "get",
+        url: `${url}/api/v1/admin/file`,
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
+}
+
+export const updateAvailableFile = async (token, formData)=>{
+  try {
+      // make axios post request
+      const res = await axios({
+        method: "patch",
+        url: `${url}/api/v1/admin/file`,
+        data: formData,
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
+}
+
+export const deleteAvailableFile = async (token, fileName)=>{
+  try {
+      // make axios post request
+      const res = await axios({
+        method: "delete",
+        url: `${url}/api/v1/admin/file`,
+        data: {fileName},
+        headers: { authorization: token },
+      });
+      return res.data;
+    } catch(error) {
+      return {
+        status: error.response.status,
+        ...error.response.data
+      }
+    }
 }
